@@ -31,3 +31,187 @@ body {
     text-wrap: balance;
   }
 }
+
+
+.animate-in {
+  animation: in 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.animate-out {
+  animation: out 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fade-in-0 {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.fade-out-0 {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+.slide-in-from-bottom-0 {
+  from { transform: translateY(100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.slide-out-to-bottom-0 {
+  from { transform: translateY(0); opacity: 1; }
+  to { transform: translateY(100%); opacity: 0; }
+}
+
+.slide-in-from-right-0 {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+.slide-out-to-right-0 {
+  from { transform: translateX(0); opacity: 1; }
+  to { transform: translateX(100%); opacity: 0; }
+}
+
+/* Add similar animations for top and left if needed */
+
+/* Default (Light) Theme Variables */
+:root {
+  --background-primary: #FFFFFF; /* White */
+  --text-primary: #111827; /* Tailwind gray-900 */
+  --text-secondary: #4B5563; /* Tailwind gray-600 */
+  --accent-primary: #D9A9A9; /* Example: Soft Pink */
+  --accent-secondary: #A2D2FF; /* Example: Light Blue */
+  --border-color: #E5E7EB; /* Tailwind gray-200 */
+  --card-background: #F9FAFB; /* Tailwind gray-50 */
+
+  /* Menubar specific variables for Light Theme */
+  --menubar-bg: rgba(255, 255, 255, 0.8); /* Light with backdrop blur */
+  --menubar-border: #E5E7EB; /* Light gray border */
+  --menubar-logo-text: #111827; /* Dark text for logo */
+  --menubar-logo-accent-text: #EC4899; /* Tailwind pink-500 for logo accents */
+  --menubar-link-text: #374151; /* Tailwind gray-700 for links */
+  --menubar-link-hover-text: #EC4899; /* Pink for link hover */
+  --menubar-icon-button-text: #374151; /* For mobile menu icon */
+  --menubar-icon-button-hover-bg: rgba(0, 0, 0, 0.05);
+
+  /* Mobile Sheet specific for Light Theme */
+  --mobile-sheet-bg: #FFFFFF;
+  --mobile-sheet-text-primary: #111827;
+  --mobile-sheet-text-secondary: #4B5563;
+  --mobile-sheet-link-hover-text: #EC4899;
+
+  /* Theme Toggle Button specific for Light Theme */
+  --theme-toggle-bg: #E5E7EB; /* Light gray background */
+  --theme-toggle-text: #1F2937; /* Dark text */
+  --theme-toggle-hover-bg: #D1D5DB; /* Slightly darker gray */
+}
+
+/* Dark Theme Variables */
+[data-theme='dark'] {
+  --background-primary: #111827; /* Tailwind gray-900 (darker than gray-800 for more contrast) */
+  --text-primary: #F3F4F6;    /* Tailwind gray-100 */
+  --text-secondary: #9CA3AF; /* Tailwind gray-400 */
+  --accent-primary: #F472B6; /* Tailwind pink-400 (user's original pink) */
+  --accent-secondary: #93C5FD;/* Tailwind blue-300 */
+  --border-color: #374151;   /* Tailwind gray-700 */
+  --card-background: #1F2937; /* Tailwind gray-800 */
+
+  /* Menubar specific variables for Dark Theme (matching user's original style) */
+  --menubar-bg: rgba(17, 24, 39, 0.7); /* bg-gray-900 with 0.7 opacity for backdrop */
+  --menubar-border: rgba(255, 255, 255, 0.1); /* white/10 */
+  --menubar-logo-text: #FFFFFF;
+  --menubar-logo-accent-text: #F472B6; /* pink-400 */
+  --menubar-link-text: #D1D5DB; /* gray-300 */
+  --menubar-link-hover-text: #FFFFFF;
+  --menubar-icon-button-text: #FFFFFF;
+  --menubar-icon-button-hover-bg: rgba(255, 255, 255, 0.1);
+
+  /* Mobile Sheet specific for Dark Theme (matching user's original style) */
+  --mobile-sheet-bg: #111827; /* gray-900 */
+  --mobile-sheet-text-primary: #FFFFFF;
+  --mobile-sheet-text-secondary: #D1D5DB; /* gray-300 */
+  --mobile-sheet-link-hover-text: #F472B6; /* pink-400 */
+
+  /* Theme Toggle Button specific for Dark Theme */
+  --theme-toggle-bg: #374151; /* gray-700 background */
+  --theme-toggle-text: #F3F4F6; /* Light text */
+  --theme-toggle-hover-bg: #4B5563; /* gray-600 */
+}
+
+/* Apply a smooth transition for color changes */
+body {
+  background-color: var(--background-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Base styles for TopMenuBar to use CSS variables */
+.themed-menubar {
+  background-color: var(--menubar-bg);
+  border-bottom: 1px solid var(--menubar-border);
+}
+
+.themed-menubar-logo {
+  color: var(--menubar-logo-text);
+}
+
+.themed-menubar-logo-accent {
+  color: var(--menubar-logo-accent-text);
+}
+
+.themed-menubar-link {
+  color: var(--menubar-link-text);
+  transition: color 0.2s ease-in-out;
+}
+
+.themed-menubar-link:hover {
+  color: var(--menubar-link-hover-text);
+}
+
+.themed-menubar-icon-button {
+  color: var(--menubar-icon-button-text);
+}
+.themed-menubar-icon-button:hover {
+  background-color: var(--menubar-icon-button-hover-bg) !important; /* Important to override potential Button variant styles */
+}
+
+
+/* Mobile Sheet Styles */
+.themed-mobile-sheet-content {
+  background-color: var(--mobile-sheet-bg) !important; /* Important for ShadCN component */
+  color: var(--mobile-sheet-text-primary) !important;
+}
+
+.themed-mobile-sheet-header {
+ color: var(--mobile-sheet-text-primary);
+}
+.themed-mobile-sheet-header-accent {
+  color: var(--menubar-logo-accent-text); /* Use menubar's accent for consistency */
+}
+
+.themed-mobile-sheet-link {
+  color: var(--mobile-sheet-text-secondary);
+  transition: color 0.2s ease-in-out;
+}
+.themed-mobile-sheet-link:hover {
+  color: var(--mobile-sheet-link-hover-text);
+}
+
+
+/* Styling for the Theme Toggle Button (can be a separate component class or part of menubar) */
+.theme-toggle-button-styles {
+  background-color: var(--theme-toggle-bg);
+  color: var(--theme-toggle-text);
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.375rem; /* rounded-md */
+  border: 1px solid var(--menubar-border); /* Use menubar border for consistency or a dedicated one */
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem; /* space-x-2 */
+}
+
+.theme-toggle-button-styles:hover {
+  background-color: var(--theme-toggle-hover-bg);
+}
