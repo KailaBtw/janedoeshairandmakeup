@@ -68,7 +68,8 @@ const TopMenuBar: React.FC = () => {
           </div>
         </div>
       </div>
-      <div className="pt-20" /> {/* Spacer for fixed menu, adjust height (py-4 = 1rem padding, so approx 2.5rem + border. Height of menubar is approx 65px with default text sizes) */}
+      <div className="h-16" /> 
+      {/* Spacer for fixed menu, adjust height (py-4 = 1rem padding, so approx 2.5rem + border. Height of menubar is approx 65px with default text sizes) */}
     </>
   );
 };

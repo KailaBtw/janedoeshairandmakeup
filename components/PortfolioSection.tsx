@@ -26,7 +26,7 @@ const PortfolioSection: React.FC = () => {
   const y = useTransform(scrollYProgress, [0, 1], ['0%', '50%']); // Adjust the '50%' to control the parallax intensity
 
   return (
-    <Section id="portfolio" className="bg-gray-950 text-white">
+    <Section id="portfolio" className="bg-[var(--background-primary)] text-[var(--text-primary)]">
       <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12">Our Portfolio</h2>
       <div ref={ref} className="relative">
         {/* Parallax Image Gallery */}
@@ -47,7 +47,10 @@ const PortfolioSection: React.FC = () => {
         </div>
       </div>
       <div className="mt-12 text-center">
-        <Button variant="outline" className="text-pink-400 hover:text-pink-300 hover:bg-pink-500/20 border-pink-500/30">
+        <Button 
+          variant="outline" 
+          className="text-[var(--accent-primary)] hover:text-[var(--accent-secondary)] hover:bg-[var(--accent-primary)]/20 border-[var(--accent-primary)]/30"
+        >
           View Full Gallery
         </Button>
       </div>

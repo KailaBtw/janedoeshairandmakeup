@@ -2,10 +2,104 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Base theme variables */
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --background-primary: #FFFFFF;
+  --text-primary: #111827;
+  --text-secondary: #4B5563;
+  --accent-primary: #D9A9A9;
+  --accent-secondary: #A2D2FF;
+  --border-color: #E5E7EB;
+  --card-background: #F9FAFB;
+}
+
+/* Dark theme variables */
+[data-theme='dark'] {
+  --background-primary: #111827;
+  --text-primary: #F3F4F6;
+  --text-secondary: #9CA3AF;
+  --accent-primary: #F472B6;
+  --accent-secondary: #93C5FD;
+  --border-color: #374151;
+  --card-background: #1F2937;
+}
+
+/* Apply theme variables to all elements */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+body {
+  background-color: var(--background-primary);
+  color: var(--text-primary);
+}
+
+/* Theme-specific component styles */
+.themed-menubar {
+  background-color: var(--background-primary);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.themed-menubar-logo {
+  color: var(--text-primary);
+}
+
+.themed-menubar-logo-accent {
+  color: var(--accent-primary);
+}
+
+.themed-menubar-link {
+  color: var(--text-secondary);
+}
+
+.themed-menubar-link:hover {
+  color: var(--accent-primary);
+}
+
+.themed-mobile-sheet-content {
+  background-color: var(--background-primary) !important;
+  color: var(--text-primary) !important;
+}
+
+.themed-mobile-sheet-header {
+  color: var(--text-primary);
+}
+
+.themed-mobile-sheet-header-accent {
+  color: var(--accent-primary);
+}
+
+.themed-mobile-sheet-link {
+  color: var(--text-secondary);
+}
+
+.themed-mobile-sheet-link:hover {
+  color: var(--accent-primary);
+}
+
+.theme-toggle-button-styles {
+  background-color: var(--card-background);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+.theme-toggle-button-styles:hover {
+  background-color: var(--border-color);
+}
+
+/* Add styles for other components */
+.card {
+  background-color: var(--card-background);
+  border: 1px solid var(--border-color);
+}
+
+.button {
+  background-color: var(--accent-primary);
+  color: var(--text-primary);
+}
+
+.button:hover {
+  background-color: var(--accent-secondary);
 }
 
 @media (prefers-color-scheme: dark) {

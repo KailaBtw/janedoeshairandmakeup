@@ -8,7 +8,13 @@ interface SectionProps {
 }
 
 const Section: React.FC<SectionProps> = ({ children, className, id }) => (
-  <section id={id} className={cn("py-16", className)}>
+  <section 
+    id={id} 
+    className={cn(
+      "py-16 bg-[var(--background-primary)] text-[var(--text-primary)]",
+      className
+    )}
+  >
     <div className="container mx-auto px-4">{children}</div>
   </section>
 );

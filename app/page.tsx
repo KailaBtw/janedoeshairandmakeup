@@ -30,14 +30,16 @@ const imageUrls = [
 // Main App Component
 const BridalBeautyApp = () => {
   return (
-    <div className="bg-gray-950">
+    <div className="min-h-screen bg-[var(--background-primary)] text-[var(--text-primary)]">
       <ThemeProvider>
         <TopMenuBar />
-        <HeroSection />
-        <ServicesSection />
-        <PortfolioSection />
-        <AboutSection />
-        <ContactSection />
+        <main>
+          <HeroSection />
+          <ServicesSection />
+          <PortfolioSection />
+          <AboutSection />
+          <ContactSection />
+        </main>
       </ThemeProvider>
     </div>
   );

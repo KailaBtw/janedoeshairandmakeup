@@ -7,7 +7,10 @@ import Section from './Section';
 
 const HeroSection: React.FC = () => {
   return (
-    <Section id="home" className="bg-gradient-to-br from-pink-900 via-purple-900 to-black text-white flex items-center justify-center">
+    <Section 
+      id="home" 
+      className="bg-gradient-to-br from-[var(--accent-primary)] via-[var(--accent-secondary)] to-[var(--background-primary)] text-[var(--text-primary)] flex items-center justify-center"
+    >
       <div className="text-center space-y-6">
         <motion.h1
           initial={{ opacity: 0, y: -20 }}
@@ -21,7 +24,7 @@ const HeroSection: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
-          className="text-lg sm:text-xl text-gray-300 max-w-2xl mx-auto"
+          className="text-lg sm:text-xl text-[var(--text-secondary)] max-w-2xl mx-auto"
         >
           Let us create the perfect hair and makeup for your special day. We specialize in creating stunning bridal looks that enhance your natural beauty.
         </motion.p>
@@ -30,7 +33,11 @@ const HeroSection: React.FC = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.6 }}
         >
-          <Button variant="default" size="lg" className="bg-pink-500 hover:bg-pink-600 text-white">
+          <Button 
+            variant="default" 
+            size="lg" 
+            className="bg-[var(--accent-primary)] hover:bg-[var(--accent-secondary)] text-[var(--text-primary)]"
+          >
             Book a Consultation
           </Button>
         </motion.div>

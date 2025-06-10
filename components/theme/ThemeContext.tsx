@@ -29,25 +29,24 @@ interface ThemeProviderProps {
 }
 
 export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
-  const [theme, setTheme] = useState<Theme>(() => {
+  const [theme, setTheme] = useState<Theme>('light'); // Default to light theme initially
+
+  // Handle theme initialization and changes
+  useEffect(() => {
     try {
-      const localTheme = localStorage.getItem('theme');
-      if (localTheme === 'light' || localTheme === 'dark') {
-        return localTheme;
-      }
-      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        return 'dark';
+      // Check localStorage for saved theme
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'light' || savedTheme === 'dark') {
+        setTheme(savedTheme);
+      } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        setTheme('dark');
       }
     } catch (error) {
-      // In case localStorage is not available (e.g., SSR, incognito mode with restrictions)
       console.warn("Could not access localStorage for theme initialization.", error);
-      if (typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        return 'dark';
-      }
     }
-    return 'light'; // Default to light
-  });
+  }, []);
 
+  // Apply theme changes
   useEffect(() => {
     try {
       document.documentElement.setAttribute('data-theme', theme);
