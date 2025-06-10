@@ -12,6 +12,7 @@ alwaysApply: true
 This project is to create a modern looking website with cute aestetics, for a bridal hair and makeup website. Designs should include nature/trees/ferns when possible. The color schemes are (for light mode) dark greens, lavenders, light colors. Then dark mode is darker greens, darker purple, with lighter text.
 
 **Tech Stack:**
+- Tailwinds CSS for all styling
 - Javascript with react/next/framer motion for deign elements
 - NPM for dependency management and command shortening
 - Front-end only (this is meant to be a lightweight website for advertising with a contact box that sends an email, it will NEVER handle money or transactions, or user accounts, etc. This ensures low maintenance costs.)

@@ -55,9 +55,9 @@ const ServicesSection: React.FC = () => {
   ];
 
   return (
-    <section id="services" className="py-20 bg-[var(--background-primary)]">
+    <section id="services" className="py-20 bg-forest-900/95 dark:bg-forest-950/95">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12">Our Services</h2>
+        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12 text-forest-50 dark:text-forest-100">Our Services</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
             <motion.div
@@ -68,7 +68,7 @@ const ServicesSection: React.FC = () => {
               viewport={{ once: true }}
               whileHover={{ scale: 1.02 }}
             >
-              <Card className="overflow-hidden h-full transition-all duration-300 hover:shadow-xl">
+              <Card className="overflow-hidden h-full transition-all duration-300 hover:shadow-xl bg-forest-800/50 dark:bg-forest-900/50 border-forest-700/30 dark:border-forest-800/30">
                 <div className="relative h-48 w-full">
                   <Image
                     src={service.image}
@@ -87,15 +87,15 @@ const ServicesSection: React.FC = () => {
                 </div>
                 <div className="p-6">
                   <div className="flex items-center mb-4">
-                    <div className="p-2 rounded-full bg-[var(--accent-primary)]/10 text-[var(--accent-primary)] mr-3">
+                    <div className="p-2 rounded-full bg-fuchsia-600/10 text-fuchsia-400 dark:text-fuchsia-300 mr-3">
                       {service.icon}
                     </div>
-                    <h3 className="text-xl font-semibold">{service.title}</h3>
+                    <h3 className="text-xl font-semibold text-forest-50 dark:text-forest-100">{service.title}</h3>
                   </div>
-                  <p className="text-[var(--text-secondary)] mb-4">{service.description}</p>
+                  <p className="text-forest-200/80 dark:text-forest-300/80 mb-4">{service.description}</p>
                   <Button 
                     variant="outline" 
-                    className="w-full text-[var(--accent-primary)] hover:text-[var(--accent-secondary)] hover:bg-[var(--accent-primary)]/20 border-[var(--accent-primary)]/30"
+                    className="w-full text-fuchsia-400 dark:text-fuchsia-300 hover:text-fuchsia-300 dark:hover:text-fuchsia-200 hover:bg-fuchsia-600/20 border-fuchsia-600/30 dark:border-fuchsia-500/30"
                   >
                     Learn More
                   </Button>

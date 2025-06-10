@@ -23,17 +23,10 @@ const config: Config = {
           950: '#111e18',
         },
         rose: {
-          50: '#fff1f2',
-          100: '#ffe4e6',
-          200: '#fecdd3',
-          300: '#fda4af',
-          400: '#fb7185',
-          500: '#f43f5e',
-          600: '#e11d48',
-          700: '#be123c',
-          800: '#9f1239',
-          900: '#881337',
-          950: '#4c0519',
+          primary: '#724656',    // Primary foreground     d5a2c3   smaller text color
+          secondary: '#ad7d8e',  // Secondary foreground   c08b9e b88497 Header text color for text sections
+          bg: '#f1e3e9',        // Primary background      f1e3e9  (alt button)
+          bgAlt: '#fff9f9',     // Secondary background    e9d8df f1eaec (background od the card)
         },
       },
       backgroundImage: {

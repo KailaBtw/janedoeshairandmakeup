@@ -40,7 +40,7 @@ const TopMenuBar: React.FC = () => {
                 href="/" 
                 className="text-base font-bold text-forest-950 dark:text-forest-100 hover:opacity-80 transition-opacity w-[280px] leading-tight whitespace-nowrap"
               >
-                <span className="text-rose-600 dark:text-rose-400">Jane</span> does{" "}
+                <span className="text-fuchsia-600 dark:text-fuchsia-400">Jane</span> does{" "}
                 <span className="text-forest-950 dark:text-forest-100">H</span>air and{" "}
                 <span className="text-forest-950 dark:text-forest-100">M</span>akeup
               </Link>
@@ -96,7 +96,7 @@ const TopMenuBar: React.FC = () => {
                 <SheetContent className="bg-white dark:bg-forest-950 border-l border-forest-200 dark:border-forest-800">
                   <div className="p-4 space-y-4">
                     <h1 className="text-xl font-bold text-forest-950 dark:text-forest-100">
-                      <span className="text-rose-600 dark:text-rose-400">B</span>ridal <span className="text-rose-600 dark:text-rose-400">B</span>eauty
+                      <span className="text-fuchsia-600 dark:text-fuchsia-400">B</span>ridal <span className="text-fuchsia-600 dark:text-fuchsia-400">B</span>eauty
                     </h1>
                     <nav className="flex flex-col space-y-1">
                       {navItems.map((item) => (
