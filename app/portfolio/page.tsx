@@ -1,8 +1,8 @@
 "use client";
 
 import React from 'react';
-import Image from 'next/image';
 import { motion } from 'framer-motion';
+import { EfficientImage } from '@/components/ui/efficient-image';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 
@@ -44,7 +44,7 @@ export default function PortfolioPage() {
                 viewport={{ once: true }}
                 className="relative aspect-[3/4] overflow-hidden rounded-lg shadow-lg"
               >
-                <Image
+                <EfficientImage
                   src={image.src}
                   alt={image.alt}
                   fill
@@ -71,7 +71,7 @@ export default function PortfolioPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {portfolioImages.map((image, index) => (
               <div key={index} className="relative aspect-square rounded-lg overflow-hidden group">
-                <Image
+                <EfficientImage
                   src={image.src}
                   alt={image.alt}
                   fill
@@ -93,7 +93,7 @@ export default function PortfolioPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {portfolioImages.map((image, index) => (
               <div key={index} className="relative aspect-square rounded-lg overflow-hidden group">
-                <Image
+                <EfficientImage
                   src={image.src}
                   alt={image.alt}
                   fill

@@ -1,8 +1,8 @@
 "use client";
 
 import React from 'react';
-import Image from 'next/image';
 import { motion } from 'framer-motion';
+import { EfficientImage } from '@/components/ui/efficient-image';
 import { Button } from '@/components/ui/button';
 
 export default function AboutPage() {
@@ -15,57 +15,46 @@ export default function AboutPage() {
           transition={{ duration: 0.5 }}
           className="max-w-4xl mx-auto"
         >
-          <h1 className="text-4xl font-bold text-center mb-12">About Jane</h1>
+          <h1 className="text-4xl font-bold text-center mb-4">About Jane</h1>
+          <p className="text-[var(--text-secondary)] text-center mb-12 max-w-2xl mx-auto">
+            Your trusted beauty expert for special occasions and everyday glamour.
+          </p>
           
           <div className="relative h-[500px] rounded-lg overflow-hidden mb-12">
-            <Image
+            <EfficientImage
               src="/images/placeholders/about-jane.jpg"
               alt="Jane - Professional Makeup Artist"
               fill
               className="object-cover"
               priority
-              onError={(e) => {
-                console.error('Error loading about image');
-                const target = e.target as HTMLImageElement;
-                target.src = 'https://placehold.co/1200x800/FFB6C1/FFFFFF?text=Jane+Does+Hair+and+Makeup';
-              }}
             />
           </div>
 
-          <div className="space-y-8">
-            <section className="space-y-4">
-              <h2 className="text-2xl font-semibold">Our Story</h2>
-              <p className="text-[var(--text-secondary)]">
-                With over a decade of experience in the beauty industry, Jane has established herself as a premier hair and makeup artist specializing in bridal and special occasion styling. Her passion for enhancing natural beauty and creating timeless looks has made her a sought-after artist in the industry.
-              </p>
-            </section>
+          <div className="prose prose-lg mx-auto">
+            <h2>My Journey</h2>
+            <p>
+              With over 10 years of experience in the beauty industry, I've had the privilege of helping countless brides
+              and clients feel their most beautiful selves. My journey began with a passion for enhancing natural beauty
+              and has evolved into a career dedicated to creating memorable experiences for my clients.
+            </p>
 
-            <section className="space-y-4">
-              <h2 className="text-2xl font-semibold">Our Approach</h2>
-              <p className="text-[var(--text-secondary)]">
-                We believe that every client deserves to feel confident and beautiful. Our approach combines professional expertise with personalized attention, ensuring that each client receives a look that perfectly complements their features and style.
-              </p>
-            </section>
+            <h2>My Approach</h2>
+            <p>
+              I believe that makeup and hair styling should enhance your natural features while reflecting your personal
+              style. My approach combines technical expertise with a deep understanding of individual preferences,
+              ensuring that each client receives a look that's uniquely theirs.
+            </p>
 
-            <section className="space-y-4">
-              <h2 className="text-2xl font-semibold">Why Choose Us</h2>
-              <ul className="space-y-3">
-                {[
-                  "Professional certification and extensive experience",
-                  "Premium quality products and tools",
-                  "Personalized consultation and attention",
-                  "Stress-free, comfortable experience",
-                  "Commitment to client satisfaction"
-                ].map((item, index) => (
-                  <li key={index} className="flex items-center">
-                    <span className="w-2 h-2 bg-[var(--accent-primary)] rounded-full mr-3"></span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </section>
+            <h2>Why Choose Me</h2>
+            <ul>
+              <li>Professional training and certification</li>
+              <li>Extensive experience with various skin types and tones</li>
+              <li>Commitment to using high-quality, long-lasting products</li>
+              <li>Personalized attention and consultation</li>
+              <li>Reliable and punctual service</li>
+            </ul>
 
-            <div className="pt-8 text-center">
+            <div className="text-center mt-12">
               <Button 
                 variant="outline" 
                 className="text-[var(--accent-primary)] hover:text-[var(--accent-secondary)] hover:bg-[var(--accent-primary)]/20 border-[var(--accent-primary)]/30"

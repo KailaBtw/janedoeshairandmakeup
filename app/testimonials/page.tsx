@@ -1,9 +1,9 @@
 "use client";
 
 import React from 'react';
-import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
+import { EfficientImage } from '@/components/ui/efficient-image';
 
 const testimonials = [
   {
@@ -35,6 +35,8 @@ const testimonials = [
     text: "The entire experience was wonderful. From the trial to the wedding day, Jane was professional, punctual, and incredibly skilled. My makeup stayed perfect through tears, dancing, and hours of photos!"
   }
 ];
+
+const DEFAULT_AVATAR = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%23FFB6C1'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='24' fill='white'%3EClient%3C/text%3E%3C/svg%3E";
 
 const StarRating = ({ rating }: { rating: number }) => (
   <div className="flex gap-1">
@@ -77,16 +79,11 @@ export default function TestimonialsPage() {
               >
                 <div className="flex items-center gap-4 mb-6">
                   <div className="relative w-16 h-16 rounded-full overflow-hidden">
-                    <Image
+                    <EfficientImage
                       src={testimonial.image}
                       alt={testimonial.name}
                       fill
                       className="object-cover"
-                      onError={(e) => {
-                        console.error('Error loading testimonial image');
-                        const target = e.target as HTMLImageElement;
-                        target.src = 'https://placehold.co/200x200/FFB6C1/FFFFFF?text=Client';
-                      }}
                     />
                   </div>
                   <div>

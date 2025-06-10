@@ -1,9 +1,10 @@
 "use client";
 
 import React from 'react';
-import Image from 'next/image';
 import { motion } from 'framer-motion';
+import { EfficientImage } from '@/components/ui/efficient-image';
 import { Button } from '@/components/ui/button';
+import Link from 'next/link';
 
 const services = [
   {
@@ -57,18 +58,12 @@ export default function ServicesPage() {
               className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
             >
               <div className={`relative h-[400px] rounded-lg overflow-hidden ${index % 2 === 1 ? 'lg:order-2' : ''}`}>
-                <Image
+                <EfficientImage
                   src={service.image}
                   alt={service.title}
                   fill
                   className="object-cover"
-                  priority={index === 0}
-                  onError={(e) => {
-                    console.error(`Error loading image: ${service.image}`);
-                    const target = e.target as HTMLImageElement;
-                    target.src = `https://placehold.co/800x600/FFB6C1/FFFFFF?text=${encodeURIComponent(service.title)}`;
-                  }}
-                  onLoad={() => console.log(`Loaded image: ${service.image}`)}
+                  priority={index < 2}
                 />
               </div>
               <div className={`space-y-6 ${index % 2 === 1 ? 'lg:order-1' : ''}`}>
@@ -95,4 +90,4 @@ export default function ServicesPage() {
       </div>
     </div>
   );
-} 
+}

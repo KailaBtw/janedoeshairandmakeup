@@ -13,7 +13,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInstagram, faFacebook } from "@fortawesome/free-brands-svg-icons";
 import { Menu, Mail, Phone, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
-import Image from "next/image";
+import { EfficientImage } from "@/components/ui/efficient-image";
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 
@@ -55,7 +55,7 @@ export default function Home() {
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <div className="relative w-full h-[600px]">
-            <Image
+            <EfficientImage
               src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=2074&auto=format&fit=crop"
               alt="Blue Ridge Mountains at sunset"
               fill
@@ -100,7 +100,7 @@ export default function Home() {
             {/* Service Preview Cards */}
             <div className="bg-[var(--card-background)] p-6 rounded-lg">
               <div className="relative h-48 mb-4">
-                <Image
+                <EfficientImage
                   src={placeholderImages.service1}
                   alt="Bridal Makeup"
                   fill
@@ -119,7 +119,7 @@ export default function Home() {
             </div>
             <div className="bg-[var(--card-background)] p-6 rounded-lg">
               <div className="relative h-48 mb-4">
-                <Image
+                <EfficientImage
                   src={placeholderImages.service2}
                   alt="Bridal Hair"
                   fill
@@ -138,7 +138,7 @@ export default function Home() {
             </div>
             <div className="bg-[var(--card-background)] p-6 rounded-lg">
               <div className="relative h-48 mb-4">
-                <Image
+                <EfficientImage
                   src={placeholderImages.service3}
                   alt="Bridal Party"
                   fill
@@ -169,7 +169,7 @@ export default function Home() {
             <div className="bg-[var(--card-background)] p-6 rounded-lg">
               <div className="flex items-center mb-4">
                 <div className="relative w-12 h-12 mr-4">
-                  <Image
+                  <EfficientImage
                     src={placeholderImages.testimonial1}
                     alt="Sarah M."
                     fill
@@ -185,7 +185,7 @@ export default function Home() {
             <div className="bg-[var(--card-background)] p-6 rounded-lg">
               <div className="flex items-center mb-4">
                 <div className="relative w-12 h-12 mr-4">
-                  <Image
+                  <EfficientImage
                     src={placeholderImages.testimonial2}
                     alt="Emily R."
                     fill
