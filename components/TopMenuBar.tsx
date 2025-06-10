@@ -2,16 +2,17 @@
 "use client"
 
 import React, { useState } from 'react';
-import { Button } from '@/components/ui/button'; // Assuming you use ShadCN Button
+import { Button } from '@/components/ui/button';
 import {
   Sheet,
   SheetContent,
   SheetTrigger,
-} from "@/components/ui/sheet"; // Assuming you use ShadCN Sheet
+} from "@/components/ui/sheet";
 import { Menu } from 'lucide-react';
-import ThemeToggle from '@/components/theme/ThemeToggle'; // Adjust path
-import Link from 'next/link'; // Use Next.js Link for internal navigation
+import ThemeToggle from '@/components/theme/ThemeToggle';
+import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { cn } from '@/lib/utils';
 
 const TopMenuBar: React.FC = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -30,82 +31,109 @@ const TopMenuBar: React.FC = () => {
 
   return (
     <>
-      {/* Apply themed-menubar for background and border, keep layout classes */}
-      <div className="themed-menubar fixed top-0 left-0 w-full z-50 backdrop-blur-md">
-        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          {/* Logo - Apply themed classes for text colors */}
-          <Link href="/" className="text-xl font-bold themed-menubar-logo">
-            <span className="themed-menubar-logo-accent">Jane</span> does
-            <span className="themed-menubar-logo-accent"> H</span>air and
-            <span className="themed-menubar-logo-accent"> M</span>akeup
-          </Link>
-
-          {/* Desktop Menu - Apply themed classes for link colors */}
-          <div className="hidden md:flex items-center space-x-6">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={`themed-menubar-link ${
-                  isActive(item.href) ? 'text-[var(--accent-primary)]' : ''
-                }`}
+      <div className="fixed top-0 left-0 w-full z-50 backdrop-blur-md border-b border-forest-200 dark:border-forest-800 bg-white/80 dark:bg-forest-950/80">
+        <div className="max-w-7xl mx-auto px-6 h-16">
+          <div className="h-full flex items-center">
+            {/* Left section - Logo */}
+            <div className="flex-shrink-0">
+              <Link 
+                href="/" 
+                className="text-base font-bold text-forest-950 dark:text-forest-100 hover:opacity-80 transition-opacity w-[280px] leading-tight whitespace-nowrap"
               >
-                {item.label}
+                <span className="text-rose-600 dark:text-rose-400">Jane</span> does{" "}
+                <span className="text-forest-950 dark:text-forest-100">H</span>air and{" "}
+                <span className="text-forest-950 dark:text-forest-100">M</span>akeup
               </Link>
-            ))}
-            <ThemeToggle />
-            <Link href="/booking">
-              <Button className="bg-[var(--accent-primary)] hover:bg-[var(--accent-secondary)] text-white">
-                Book Now
-              </Button>
-            </Link>
-          </div>
+            </div>
 
-          {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center space-x-4">
-            <ThemeToggle />
-            <Sheet open={isMobileMenuOpen} onOpenChange={setMobileMenuOpen}>
-              <SheetTrigger asChild>
-                {/* Apply themed class for icon button color */}
-                <Button variant="ghost" size="icon" className="themed-menubar-icon-button">
-                  <Menu className="h-6 w-6" />
+            {/* Center section - Navigation */}
+            <div className="hidden md:flex flex-1 justify-center">
+              <nav className="flex items-center space-x-1">
+                {navItems.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className={cn(
+                      "px-3 py-2 rounded-md text-sm font-medium transition-all duration-200",
+                      "hover:bg-forest-950/5 hover:text-forest-950 dark:hover:bg-forest-100/10 dark:hover:text-forest-100",
+                      isActive(item.href) 
+                        ? "text-forest-950 bg-forest-950/5 dark:text-forest-100 dark:bg-forest-100/10" 
+                        : "text-forest-800 dark:text-forest-200"
+                    )}
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </nav>
+            </div>
+
+            {/* Right section - Actions */}
+            <div className="hidden md:flex items-center space-x-4 ml-4">
+              <ThemeToggle />
+              <Link href="/booking">
+                <Button 
+                  className="bg-forest-950 hover:bg-forest-900 dark:bg-forest-800 dark:hover:bg-forest-700 text-white transition-colors duration-200"
+                  size="sm"
+                >
+                  Book Now
                 </Button>
-              </SheetTrigger>
-              {/* Apply themed class for mobile sheet background and text */}
-              <SheetContent className="themed-mobile-sheet-content w-full sm:max-w-sm">
-                <div className="p-4 space-y-6">
-                  <h1 className="text-2xl font-bold themed-mobile-sheet-header">
-                    <span className="themed-mobile-sheet-header-accent">B</span>ridal <span className="themed-mobile-sheet-header-accent">B</span>eauty
-                  </h1>
-                  <nav className="flex flex-col space-y-4">
-                    {navItems.map((item) => (
-                      <Link
-                        key={item.href}
-                        href={item.href}
-                        className={`themed-mobile-sheet-link ${
-                          isActive(item.href) ? 'text-[var(--accent-primary)]' : ''
-                        }`}
-                        onClick={() => setMobileMenuOpen(false)}
-                      >
-                        {item.label}
-                      </Link>
-                    ))}
-                    <div className="pt-4 border-t border-[var(--menubar-border)]"> {/* Use CSS variable for border */}
-                      <Link href="/booking">
-                        <Button className="w-full bg-[var(--accent-primary)] hover:bg-[var(--accent-secondary)] text-white">
-                          Book Now
-                        </Button>
-                      </Link>
-                    </div>
-                  </nav>
-                </div>
-              </SheetContent>
-            </Sheet>
+              </Link>
+            </div>
+
+            {/* Mobile menu button */}
+            <div className="md:hidden flex items-center space-x-4 ml-auto">
+              <ThemeToggle />
+              <Sheet open={isMobileMenuOpen} onOpenChange={setMobileMenuOpen}>
+                <SheetTrigger asChild>
+                  <Button 
+                    variant="ghost" 
+                    size="icon" 
+                    className="hover:bg-forest-950/5 dark:hover:bg-forest-100/10"
+                  >
+                    <Menu className="h-5 w-5" />
+                  </Button>
+                </SheetTrigger>
+                <SheetContent className="bg-white dark:bg-forest-950 border-l border-forest-200 dark:border-forest-800">
+                  <div className="p-4 space-y-4">
+                    <h1 className="text-xl font-bold text-forest-950 dark:text-forest-100">
+                      <span className="text-rose-600 dark:text-rose-400">B</span>ridal <span className="text-rose-600 dark:text-rose-400">B</span>eauty
+                    </h1>
+                    <nav className="flex flex-col space-y-1">
+                      {navItems.map((item) => (
+                        <Link
+                          key={item.href}
+                          href={item.href}
+                          className={cn(
+                            "px-3 py-2 rounded-md text-sm font-medium transition-all duration-200",
+                            "hover:bg-forest-950/5 hover:text-forest-950 dark:hover:bg-forest-100/10 dark:hover:text-forest-100",
+                            isActive(item.href) 
+                              ? "text-forest-950 bg-forest-950/5 dark:text-forest-100 dark:bg-forest-100/10" 
+                              : "text-forest-800 dark:text-forest-200"
+                          )}
+                          onClick={() => setMobileMenuOpen(false)}
+                        >
+                          {item.label}
+                        </Link>
+                      ))}
+                      <div className="pt-4 mt-2 border-t border-forest-200 dark:border-forest-800">
+                        <Link href="/booking">
+                          <Button 
+                            className="w-full bg-forest-950 hover:bg-forest-900 dark:bg-forest-800 dark:hover:bg-forest-700 text-white transition-colors duration-200"
+                            size="sm"
+                          >
+                            Book Now
+                          </Button>
+                        </Link>
+                      </div>
+                    </nav>
+                  </div>
+                </SheetContent>
+              </Sheet>
+            </div>
           </div>
         </div>
       </div>
-      <div className="h-16" /> 
-      {/* Spacer for fixed menu, adjust height (py-4 = 1rem padding, so approx 2.5rem + border. Height of menubar is approx 65px with default text sizes) */}
+      <div className="h-16" /> {/* Spacer */}
     </>
   );
 };
