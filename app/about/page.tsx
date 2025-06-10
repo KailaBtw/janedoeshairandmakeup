@@ -1,20 +1,13 @@
-"use client";
-
 import React from 'react';
-import { motion } from 'framer-motion';
 import { EfficientImage } from '@/components/ui/efficient-image';
 import { Button } from '@/components/ui/button';
+import Link from 'next/link';
 
 export default function AboutPage() {
   return (
     <div className="min-h-screen bg-[var(--background-primary)] py-20">
       <div className="container mx-auto px-4">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="max-w-4xl mx-auto"
-        >
+        <div className="max-w-4xl mx-auto">
           <h1 className="text-4xl font-bold text-center mb-4">About Jane</h1>
           <p className="text-[var(--text-secondary)] text-center mb-12 max-w-2xl mx-auto">
             Your trusted beauty expert for special occasions and everyday glamour.
@@ -25,8 +18,10 @@ export default function AboutPage() {
               src="/images/placeholders/about-jane.jpg"
               alt="Jane - Professional Makeup Artist"
               fill
-              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 768px"
+              quality={85}
               priority
+              className="object-cover"
             />
           </div>
 
@@ -55,15 +50,17 @@ export default function AboutPage() {
             </ul>
 
             <div className="text-center mt-12">
-              <Button 
-                variant="outline" 
-                className="text-[var(--accent-primary)] hover:text-[var(--accent-secondary)] hover:bg-[var(--accent-primary)]/20 border-[var(--accent-primary)]/30"
-              >
-                Book a Consultation
-              </Button>
+              <Link href="/booking">
+                <Button 
+                  variant="outline" 
+                  className="text-[var(--accent-primary)] hover:text-[var(--accent-secondary)] hover:bg-[var(--accent-primary)]/20 border-[var(--accent-primary)]/30"
+                >
+                  Book a Consultation
+                </Button>
+              </Link>
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </div>
   );

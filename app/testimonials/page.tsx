@@ -1,9 +1,7 @@
-"use client";
-
 import React from 'react';
-import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { EfficientImage } from '@/components/ui/efficient-image';
+import Link from 'next/link';
 
 const testimonials = [
   {
@@ -57,12 +55,7 @@ export default function TestimonialsPage() {
   return (
     <div className="min-h-screen bg-[var(--background-primary)] py-20">
       <div className="container mx-auto px-4">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="max-w-6xl mx-auto"
-        >
+        <div className="max-w-6xl mx-auto">
           <h1 className="text-4xl font-bold text-center mb-4">Client Testimonials</h1>
           <p className="text-[var(--text-secondary)] text-center mb-12 max-w-2xl mx-auto">
             Read what our clients have to say about their experience with Jane Does Hair and Makeup.
@@ -70,11 +63,8 @@ export default function TestimonialsPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {testimonials.map((testimonial, index) => (
-              <motion.div
+              <div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="bg-[var(--background-secondary)] rounded-lg p-8 shadow-lg"
               >
                 <div className="flex items-center gap-4 mb-6">
@@ -83,6 +73,8 @@ export default function TestimonialsPage() {
                       src={testimonial.image}
                       alt={testimonial.name}
                       fill
+                      sizes="64px"
+                      loading={index < 2 ? "eager" : "lazy"}
                       className="object-cover"
                     />
                   </div>
@@ -93,7 +85,7 @@ export default function TestimonialsPage() {
                   </div>
                 </div>
                 <p className="text-[var(--text-secondary)] italic">"{testimonial.text}"</p>
-              </motion.div>
+              </div>
             ))}
           </div>
 
@@ -102,14 +94,16 @@ export default function TestimonialsPage() {
             <p className="text-[var(--text-secondary)] mb-8">
               We'd love to hear about your experience with Jane Does Hair and Makeup.
             </p>
-            <Button 
-              variant="outline" 
-              className="text-[var(--accent-primary)] hover:text-[var(--accent-secondary)] hover:bg-[var(--accent-primary)]/20 border-[var(--accent-primary)]/30"
-            >
-              Leave a Review
-            </Button>
+            <Link href="/contact">
+              <Button 
+                variant="outline" 
+                className="text-[var(--accent-primary)] hover:text-[var(--accent-secondary)] hover:bg-[var(--accent-primary)]/20 border-[var(--accent-primary)]/30"
+              >
+                Leave a Review
+              </Button>
+            </Link>
           </div>
-        </motion.div>
+        </div>
       </div>
     </div>
   );

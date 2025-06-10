@@ -1,17 +1,11 @@
-import React, { useState, useEffect, useRef, useCallback } from "react";
-// import { motion, useScroll, useTransform } from 'framer-motion';
+import React from "react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { ThemeProvider } from "@/components/theme/ThemeContext";
 import TopMenuBar from "@/components/TopMenuBar";
 import HeroSection from "@/components/HeroSection";
 import ServicesSection from "@/components/ServicesSection";
 import PortfolioSection from "@/components/PortfolioSection";
 import AboutSection from "@/components/AboutSection";
 import ContactSection from "@/components/ContactSection";
-
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faInstagram, faFacebook } from "@fortawesome/free-brands-svg-icons";
-import { Menu, Mail, Phone, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { EfficientImage } from "@/components/ui/efficient-image";
 import { Button } from '@/components/ui/button';
@@ -27,26 +21,6 @@ const placeholderImages = {
   testimonial2: "https://placehold.co/100x100/FFB6C1/FFFFFF?text=ER",
 };
 
-// --- Helper Components ---
-
-// Main App Component
-const BridalBeautyApp = () => {
-  return (
-    <div className="min-h-screen bg-[var(--background-primary)] text-[var(--text-primary)]">
-      <ThemeProvider>
-        <TopMenuBar />
-        <main>
-        <HeroSection />
-        <ServicesSection />
-        <PortfolioSection />
-        <AboutSection />
-        <ContactSection />
-        </main>
-      </ThemeProvider>
-    </div>
-  );
-};
-
 export default function Home() {
   return (
     <main className="min-h-screen">
@@ -60,9 +34,11 @@ export default function Home() {
               alt="Blue Ridge Mountains at sunset"
               fill
               priority
+              sizes="100vw"
+              quality={85}
               className="object-cover"
             />
-            <div className="absolute inset-0 bg-black/40" /> {/* Overlay */}
+            <div className="absolute inset-0 bg-black/40" />
           </div>
         </div>
 
@@ -104,6 +80,8 @@ export default function Home() {
                   src={placeholderImages.service1}
                   alt="Bridal Makeup"
                   fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  loading="lazy"
                   className="object-cover rounded-lg"
                 />
               </div>
@@ -123,6 +101,8 @@ export default function Home() {
                   src={placeholderImages.service2}
                   alt="Bridal Hair"
                   fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  loading="lazy"
                   className="object-cover rounded-lg"
                 />
               </div>
@@ -142,6 +122,8 @@ export default function Home() {
                   src={placeholderImages.service3}
                   alt="Bridal Party"
                   fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  loading="lazy"
                   className="object-cover rounded-lg"
                 />
               </div>
@@ -173,6 +155,8 @@ export default function Home() {
                     src={placeholderImages.testimonial1}
                     alt="Sarah M."
                     fill
+                    sizes="48px"
+                    loading="lazy"
                     className="rounded-full"
                   />
                 </div>
@@ -189,6 +173,8 @@ export default function Home() {
                     src={placeholderImages.testimonial2}
                     alt="Emily R."
                     fill
+                    sizes="48px"
+                    loading="lazy"
                     className="rounded-full"
                   />
                 </div>

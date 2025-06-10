@@ -1,8 +1,6 @@
-"use client";
-
 import React from 'react';
-import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
+import Link from 'next/link';
 
 const pricingPackages = [
   {
@@ -50,12 +48,7 @@ export default function PricingPage() {
   return (
     <div className="min-h-screen bg-[var(--background-primary)] py-20">
       <div className="container mx-auto px-4">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="max-w-6xl mx-auto"
-        >
+        <div className="max-w-6xl mx-auto">
           <h1 className="text-4xl font-bold text-center mb-4">Pricing & Packages</h1>
           <p className="text-[var(--text-secondary)] text-center mb-12 max-w-2xl mx-auto">
             We offer competitive pricing for all our services. Contact us for custom packages and special requests.
@@ -63,11 +56,8 @@ export default function PricingPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {pricingPackages.map((pkg, index) => (
-              <motion.div
+              <div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="bg-[var(--background-secondary)] rounded-lg p-8 shadow-lg"
               >
                 <h2 className="text-2xl font-bold mb-2">{pkg.title}</h2>
@@ -83,12 +73,14 @@ export default function PricingPage() {
                   ))}
                 </ul>
 
-                <Button 
-                  className="w-full bg-[var(--accent-primary)] hover:bg-[var(--accent-secondary)] text-white"
-                >
-                  Book Now
-                </Button>
-              </motion.div>
+                <Link href="/booking">
+                  <Button 
+                    className="w-full bg-[var(--accent-primary)] hover:bg-[var(--accent-secondary)] text-white"
+                  >
+                    Book Now
+                  </Button>
+                </Link>
+              </div>
             ))}
           </div>
 
@@ -113,7 +105,7 @@ export default function PricingPage() {
               ))}
             </ul>
           </div>
-        </motion.div>
+        </div>
       </div>
     </div>
   );
