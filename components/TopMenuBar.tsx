@@ -11,9 +11,22 @@ import {
 import { Menu } from 'lucide-react';
 import ThemeToggle from '@/components/theme/ThemeToggle'; // Adjust path
 import Link from 'next/link'; // Use Next.js Link for internal navigation
+import { usePathname } from 'next/navigation';
 
 const TopMenuBar: React.FC = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
+
+  const isActive = (path: string) => pathname === path;
+
+  const navItems = [
+    { label: 'Home', href: '/' },
+    { label: 'Services', href: '/services' },
+    { label: 'Portfolio', href: '/portfolio' },
+    { label: 'About', href: '/about' },
+    { label: 'Pricing', href: '/pricing' },
+    { label: 'Testimonials', href: '/testimonials' },
+  ];
 
   return (
     <>
@@ -29,16 +42,28 @@ const TopMenuBar: React.FC = () => {
 
           {/* Desktop Menu - Apply themed classes for link colors */}
           <div className="hidden md:flex items-center space-x-6">
-            <Link href="#home" className="themed-menubar-link">Home</Link>
-            <Link href="#services" className="themed-menubar-link">Services</Link>
-            <Link href="#portfolio" className="themed-menubar-link">Portfolio</Link>
-            <Link href="#about" className="themed-menubar-link">About</Link>
-            <Link href="#contact" className="themed-menubar-link">Contact</Link>
-            <ThemeToggle /> {/* Add ThemeToggle to desktop menu */}
+            {navItems.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={`themed-menubar-link ${
+                  isActive(item.href) ? 'text-[var(--accent-primary)]' : ''
+                }`}
+              >
+                {item.label}
+              </Link>
+            ))}
+            <ThemeToggle />
+            <Link href="/booking">
+              <Button className="bg-[var(--accent-primary)] hover:bg-[var(--accent-secondary)] text-white">
+                Book Now
+              </Button>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden">
+          <div className="md:hidden flex items-center space-x-4">
+            <ThemeToggle />
             <Sheet open={isMobileMenuOpen} onOpenChange={setMobileMenuOpen}>
               <SheetTrigger asChild>
                 {/* Apply themed class for icon button color */}
@@ -53,13 +78,24 @@ const TopMenuBar: React.FC = () => {
                     <span className="themed-mobile-sheet-header-accent">B</span>ridal <span className="themed-mobile-sheet-header-accent">B</span>eauty
                   </h1>
                   <nav className="flex flex-col space-y-4">
-                    <Link href="#home" className="themed-mobile-sheet-link" onClick={() => setMobileMenuOpen(false)}>Home</Link>
-                    <Link href="#services" className="themed-mobile-sheet-link" onClick={() => setMobileMenuOpen(false)}>Services</Link>
-                    <Link href="#portfolio" className="themed-mobile-sheet-link" onClick={() => setMobileMenuOpen(false)}>Portfolio</Link>
-                    <Link href="#about" className="themed-mobile-sheet-link" onClick={() => setMobileMenuOpen(false)}>About</Link>
-                    <Link href="#contact" className="themed-mobile-sheet-link" onClick={() => setMobileMenuOpen(false)}>Contact</Link>
+                    {navItems.map((item) => (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        className={`themed-mobile-sheet-link ${
+                          isActive(item.href) ? 'text-[var(--accent-primary)]' : ''
+                        }`}
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
+                        {item.label}
+                      </Link>
+                    ))}
                     <div className="pt-4 border-t border-[var(--menubar-border)]"> {/* Use CSS variable for border */}
-                         <ThemeToggle className="w-full justify-center"/> {/* Add ThemeToggle to mobile menu */}
+                      <Link href="/booking">
+                        <Button className="w-full bg-[var(--accent-primary)] hover:bg-[var(--accent-secondary)] text-white">
+                          Book Now
+                        </Button>
+                      </Link>
                     </div>
                   </nav>
                 </div>
