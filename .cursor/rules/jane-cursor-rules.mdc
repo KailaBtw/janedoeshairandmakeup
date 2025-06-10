@@ -5,7 +5,7 @@ alwaysApply: true
 ---
  AI Project Rules - Jane does hair and makeup
 
-- **STRUCTURE:** `src/` = Website code, `tests/` = test files, `package.json` = dependencies
+- **STRUCTURE:** `app/` = Website page code, `components/` = react components, `tests/` = test files, `package.json` = dependencies
 - **STACK:** Javascript and npm for dependencies, uses next.js, react components, and framer motion to create beautiful interfaces.
 
 ## Project Overview
