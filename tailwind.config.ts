@@ -23,10 +23,10 @@ const config: Config = {
           950: '#111e18',
         },
         rose: {
-          primary: '#724656',    // Primary foreground     d5a2c3   smaller text color
-          secondary: '#ad7d8e',  // Secondary foreground   c08b9e b88497 Header text color for text sections
-          bg: '#f1e3e9',        // Primary background      f1e3e9  (alt button)
-          bgAlt: '#fff9f9',     // Secondary background    e9d8df f1eaec (background od the card)
+          primary: '#724656',    // Primary foreground     "book a consultation" button (dark button)
+          secondary: '#7A4354',  // Secondary foreground   Header text color for text sections (like "bridal hair", "learn more")
+          bg: '#f1e3e9',        // Primary background      "view services" button (light button)
+          bgAlt: '#fff9f9',     // Secondary background    back of "our services" card
         },
       },
       backgroundImage: {

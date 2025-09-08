@@ -7,12 +7,13 @@ import ServicesSection from "@/components/ServicesSection";
 import PortfolioSection from "@/components/PortfolioSection";
 import AboutSection from "@/components/AboutSection";
 import ContactSection from "@/components/ContactSection";
+import TestimonialsSection from "@/components/TestimonialsSection";
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-forest-50 dark:bg-forest-950">
       {/* Hero Section */}
-      <section className="relative h-[85vh] flex items-center justify-center overflow-hidden">
+      <section className="relative h-screen flex items-center justify-center overflow-hidden -mt-0" style={{ marginTop: 0 }}>
         <div className="absolute inset-0 z-0">
           <EfficientImage
             src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=2074&auto=format&fit=crop"
@@ -26,7 +27,7 @@ export default function Home() {
           <div className="absolute inset-0 bg-forest-900/60 dark:bg-forest-950/70" />
         </div>
 
-        <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
+        <div className="relative z-10 text-center px-6 lg:px-8 max-w-7xl mx-auto pt-16 sm:pt-20">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 text-forest-50">
             Your Dream Bridal Beauty
           </h1>
@@ -50,8 +51,8 @@ export default function Home() {
       </section>
 
       {/* Featured Services Preview */}
-      <section className="py-20 bg-forest-100/50 dark:bg-forest-900/50">
-        <div className="container mx-auto px-4">
+      <section className="pt-20 pb-20 bg-forest-900/50 dark:bg-forest-900/50">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-center mb-12 text-forest-800 dark:text-forest-100">
             Our Services
           </h2>
@@ -99,54 +100,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Testimonials Preview */}
-      <section className="py-20 bg-forest-50 dark:bg-forest-950">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12 text-forest-800 dark:text-forest-100">
-            What Our Brides Say
-          </h2>
-          <div className="grid md:grid-cols-2 gap-8">
-            {[
-              {
-                name: "Sarah M.",
-                image: "https://placehold.co/100x100/FFB6C1/FFFFFF?text=SM",
-                quote: "Jane transformed my wedding day look beyond my expectations. Her attention to detail and natural style made me feel like the best version of myself."
-              },
-              {
-                name: "Emily R.",
-                image: "https://placehold.co/100x100/FFB6C1/FFFFFF?text=ER",
-                quote: "The entire bridal party looked stunning! Jane's expertise in both hair and makeup created a cohesive, elegant look for everyone."
-              }
-            ].map((testimonial, index) => (
-              <div key={index} className="bg-rose-bg dark:bg-rose-bgAlt p-6 rounded-lg shadow-lg">
-                <div className="flex items-center mb-4">
-                  <div className="relative w-12 h-12 mr-4">
-                    <EfficientImage
-                      src={testimonial.image}
-                      alt={testimonial.name}
-                      fill
-                      sizes="48px"
-                      loading="lazy"
-                      className="rounded-full"
-                    />
-                  </div>
-                  <p className="text-rose-primary dark:text-rose-secondary font-semibold">{testimonial.name}</p>
-                </div>
-                <p className="text-rose-secondary dark:text-rose-primary/80 italic">
-                  "{testimonial.quote}"
-                </p>
-              </div>
-            ))}
-          </div>
-          <div className="text-center mt-8">
-            <Link href="/testimonials">
-              <Button variant="outline" className="text-rose-primary dark:text-rose-secondary border-rose-primary/30 dark:border-rose-secondary/30 hover:bg-rose-primary/10">
-                Read More Testimonials
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </section>
+      {/* Testimonials Section */}
+      <TestimonialsSection />
     </main>
   );
 }

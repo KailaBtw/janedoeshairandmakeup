@@ -26,7 +26,7 @@ export default function RootLayout({
         <ThemeHydrationScript />
         <ThemeProvider>
           <TopMenuBar />
-          <main className="pt-16 sm:pt-20"> {/* Added padding top to account for fixed TopMenuBar height; adjust as needed */}
+          <main className="bg-forest-950 dark:bg-forest-950"> {/* Removed padding top to allow hero image to extend behind navbar */}
             {children}
           </main>
           {/* You could add a global Footer here if needed */}
