@@ -6,27 +6,28 @@ const config: Config = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  darkMode: 'class',
   theme: {
     extend: {
       colors: {
         forest: {
-          50: '#f0f7f4',
-          100: '#dce9e2',
-          200: '#b8d3c5',
-          300: '#8db8a3',
-          400: '#629a82',
-          500: '#4a7d67',
-          600: '#3a634f',
-          700: '#2f4f3f',
-          800: '#273f33',
-          900: '#1f3329',
-          950: '#111e18',
+          50: '#f7f9f8',    // Very light sage
+          100: '#eef2f0',   // Light sage
+          200: '#dde5e1',   // Soft sage
+          300: '#bcc9c2',   // Medium light sage
+          400: '#8fa396',   // Medium sage
+          500: '#6b7c73',   // Base sage
+          600: '#55665c',   // Dark sage
+          700: '#45514a',   // Darker sage
+          800: '#37403a',   // Very dark sage
+          900: '#2a312c',   // Almost black sage
+          950: '#1a1f1c',   // Black sage
         },
         rose: {
-          primary: '#724656',    // Primary foreground     "book a consultation" button (dark button)
-          secondary: '#7A4354',  // Secondary foreground   Header text color for text sections (like "bridal hair", "learn more")
-          bg: '#f1e3e9',        // Primary background      "view services" button (light button)
-          bgAlt: '#fff9f9',     // Secondary background    back of "our services" card
+          primary: '#8b5a6b',    // Muted rose - "book a consultation" button
+          secondary: '#a67b8a',  // Soft rose - headers and accents
+          bg: '#faf7f8',        // Very light rose background
+          bgAlt: '#f5f0f2',     // Light rose background for cards
         },
       },
       backgroundImage: {

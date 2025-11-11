@@ -98,7 +98,7 @@ const TestimonialsSection: React.FC = () => {
   const additionalTestimonials = testimonials.slice(initialCount);
 
   return (
-    <section className="py-20 bg-forest-950 dark:bg-forest-950">
+    <section className="py-20 bg-forest-50 dark:bg-forest-950 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <h2 className="text-3xl font-bold text-center mb-12 text-forest-800 dark:text-forest-100">
           What Our Brides Say

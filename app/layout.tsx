@@ -26,7 +26,7 @@ export default function RootLayout({
         <ThemeHydrationScript />
         <ThemeProvider>
           <TopMenuBar />
-          <main className="bg-forest-950 dark:bg-forest-950"> {/* Removed padding top to allow hero image to extend behind navbar */}
+          <main className="bg-forest-50 dark:bg-forest-950"> {/* Removed padding top to allow hero image to extend behind navbar */}
             {children}
           </main>
           {/* You could add a global Footer here if needed */}
@@ -54,7 +54,9 @@ const ThemeHydrationScript = () => (
             } catch (e) { /* Ignore */ }
             return 'light';
           }
-          document.documentElement.setAttribute('data-theme', getInitialTheme());
+          const theme = getInitialTheme();
+          document.documentElement.setAttribute('data-theme', theme);
+          document.documentElement.classList.add(theme);
         })();
       `,
     }}

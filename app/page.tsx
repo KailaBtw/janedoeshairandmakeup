@@ -11,7 +11,7 @@ import TestimonialsSection from "@/components/TestimonialsSection";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-forest-50 dark:bg-forest-950">
+    <main className="min-h-screen bg-forest-50 dark:bg-forest-950 transition-colors duration-300">
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden -mt-0" style={{ marginTop: 0 }}>
         <div className="absolute inset-0 z-0">
@@ -51,7 +51,7 @@ export default function Home() {
       </section>
 
       {/* Featured Services Preview */}
-      <section className="pt-20 pb-20 bg-forest-900/50 dark:bg-forest-900/50">
+      <section className="pt-20 pb-20 bg-forest-100/50 dark:bg-forest-900/50 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-center mb-12 text-forest-800 dark:text-forest-100">
             Our Services
