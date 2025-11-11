@@ -55,7 +55,7 @@ const ServicesSection: React.FC = () => {
   ];
 
   return (
-    <section id="services" className="py-20 bg-forest-900/95 dark:bg-forest-950/95">
+    <section id="services" className="py-20 bg-forest-100/95 dark:bg-forest-950/95 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12 text-forest-50 dark:text-forest-100">Our Services</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -68,7 +68,7 @@ const ServicesSection: React.FC = () => {
               viewport={{ once: true }}
               whileHover={{ scale: 1.02 }}
             >
-              <Card className="overflow-hidden h-full transition-all duration-300 hover:shadow-xl bg-forest-800/50 dark:bg-forest-900/50 border-forest-700/30 dark:border-forest-800/30">
+              <Card className="overflow-hidden h-full transition-all duration-300 hover:shadow-xl bg-forest-200/50 dark:bg-forest-900/50 border-forest-300/30 dark:border-forest-800/30">
                 <div className="relative h-48 w-full">
                   <Image
                     src={service.image}

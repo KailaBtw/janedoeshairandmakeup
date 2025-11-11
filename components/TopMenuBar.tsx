@@ -31,7 +31,7 @@ const TopMenuBar: React.FC = () => {
 
   return (
     <>
-      <div className="fixed top-0 left-0 w-full z-50 backdrop-blur-md border-b border-forest-200 dark:border-forest-800 bg-forest-50/8 dark:bg-forest-950/8">
+      <div className="fixed top-0 left-0 w-full z-50 backdrop-blur-md border-b border-forest-200 dark:border-forest-800 bg-forest-50/80 dark:bg-forest-950/80 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-6 h-16">
           <div className="h-full flex items-center">
             {/* Left section - Logo */}

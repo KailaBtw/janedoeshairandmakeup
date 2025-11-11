@@ -18,6 +18,7 @@ const ThemeToggle: React.FC<ThemeToggleProps> = ({ className, ...rest }) => {
   return (
     <button
       onClick={(e) => {
+        console.log('Theme toggle clicked, current theme:', theme);
         toggleTheme();
         // If an onClick prop is passed, call it as well
         if (rest.onClick) {

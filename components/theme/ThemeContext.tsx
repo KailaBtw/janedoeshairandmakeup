@@ -49,10 +49,21 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
   // Apply theme changes
   useEffect(() => {
     try {
-      document.documentElement.setAttribute('data-theme', theme);
-      document.documentElement.classList.remove('light', 'dark');
-      document.documentElement.classList.add(theme);
+      const root = document.documentElement;
+      
+      // Remove existing theme classes
+      root.classList.remove('light', 'dark');
+      
+      // Add the new theme class
+      root.classList.add(theme);
+      
+      // Set data-theme attribute for CSS variables
+      root.setAttribute('data-theme', theme);
+      
+      // Save to localStorage
       localStorage.setItem('theme', theme);
+      
+      console.log('Theme applied:', theme, 'Classes:', root.className);
     } catch (error) {
       console.warn("Could not access localStorage to save theme preference.", error);
     }
